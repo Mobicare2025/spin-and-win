@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Select Prize</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    select, button {
+      font-size: 16px;
+      padding: 10px;
+      margin: 10px;
+    }
+    #linkOutput {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎮 Admin Prize Selector</h2>
+  <label for="prizeSelect">Choose a Prize:</label><br>
+  <select id="prizeSelect">
+    <option>Bluetooth Neckband</option>
+    <option>Wireless Headphones</option>
+    <option>Bluetooth Speaker</option>
+    <option>Powerbank</option>
+    <option>₹500 Cash</option>
+    <option>₹300 Cash</option>
+    <option>Free Scratch Guard</option>
+  </select><br>
+  <button onclick="generateLink()">Generate Spin Link</button>
+
+  <div id="linkOutput"></div>
+
+  <script>
+    function generateLink() {
+      const prize = document.getElementById("prizeSelect").value;
+      const encodedPrize = encodeURIComponent(prize);
+      const link = `customer_spin_and_win.html?prize=${encodedPrize}`;
+      document.getElementById("linkOutput").innerHTML = 
+        '🔗 Customer Spin Link:<br><a href="' + link + '" target="_blank">' + link + '</a>';
+    }
+  </script>
+</body>
+</html>
